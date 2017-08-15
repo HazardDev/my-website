@@ -1,0 +1,189 @@
+html, body {
+  margin: 0;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 110%;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+body {
+  padding: 10%;
+}
+
+a {
+  color: white;
+}
+a:hover {
+  color: green;
+}
+
+a:clicked {
+  color: #65D665;
+}
+
+.background {
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+}
+
+
+.grid-container {
+	display: grid;
+  padding: 10px;
+  width: 95%;
+	height: 95%;
+}
+
+.footer {
+  display: grid;
+  width: 100%;
+}
+
+  @media only screen and (max-width: 700px) {
+
+  .grid-container {
+	grid-template-rows: 15% 75% 10%;
+	grid-template-columns: auto;
+  grid-template-areas:
+  "header"
+  "body"
+  "footer";
+  }
+
+  .footer {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "github twitter twitch steam";
+    /* padding: 0 10px 0 10px; */
+  }
+
+      .content {
+        padding-bottom: 35px;
+      }
+
+}
+
+
+@media only screen and (min-width: 700px) {
+  .grid-container {
+    grid-template-rows: 15% 85%;
+    grid-template-columns: auto;
+    grid-template-areas:
+    "header header"
+    "body footer";
+  }
+
+    .footer {
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-columns: auto;
+      grid-template-areas:
+      "github"
+      "twitter"
+      "twitch"
+      "steam"
+    }
+
+    .content {
+      padding-right: 35px;
+    }
+
+}
+
+.github {
+  grid-area: github;
+  justify-self: center;
+
+}
+.twitter {
+  grid-area: twitter;
+  justify-self: center;
+
+}
+.twitch {
+  grid-area: twitch;
+  justify-self: center;
+
+}
+.steam {
+  grid-area: steam;
+    justify-self: center;
+
+}
+
+
+.header {
+  grid-area: header;
+  justify-self: center;
+  font-size: 200%;
+  padding-bottom: 35px;
+}
+
+.content {
+  grid-area: body;
+  justify-self: center;
+}
+
+.footer {
+  justify-self: center;
+	grid-area: footer;
+}
+
+
+
+
+
+
+
+
+
+
+/* Shamelessly taken from https://slicejack.com/fullscreen-html5-video-background-css/ */
+
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('/images/videoframe.png') center center / cover no-repeat;
+  }
+  .fullscreen-bg__video {
+    display: none;
+  }
+}
